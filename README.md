@@ -4,7 +4,7 @@ mkdir ~/catkin_ws/src
 
 cd ~/catkin_ws/src
 
-git clone 
+git clone https://github.com/kgh-DaC/dami_kgh.git
 
 sudo apt update
 
