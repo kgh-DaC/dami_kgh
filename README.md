@@ -6,6 +6,8 @@ cd ~/catkin_ws/src
 
 git clone https://github.com/kgh-DaC/dami_kgh.git
 
+cd ..
+
 sudo apt update
 
 sudo apt upgrade
