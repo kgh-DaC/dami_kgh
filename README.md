@@ -1,3 +1,7 @@
+sudo apt update
+
+sudo apt upgrade
+
 sudo apt-get install ros-noetic-geographic-*
 
 sudo apt-get install geographiclib-*
