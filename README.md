@@ -1,3 +1,11 @@
+mkdir ~/catkin_ws
+
+mkdir ~/catkin_ws/src
+
+cd ~/catkin_ws/src
+
+git clone 
+
 sudo apt update
 
 sudo apt upgrade
