@@ -187,7 +187,7 @@
 
   <joint name="scan_joint" type="fixed">
     <parent link="base_link"/>
-    <child link="base_scan"/>
+    <child link="camer_scan"/>
     <origin xyz="-0.054025 0.0 0.14405" rpy="0 0 0"/>
   </joint>
 
