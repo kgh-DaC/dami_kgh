@@ -16,7 +16,7 @@
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://dami2_description/meshes/bases/dami2_base.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://dami2_description/meshes/bases/base_rev.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="light_black"/>
     </visual>
@@ -171,7 +171,7 @@
   <joint name="imu_joint" type="fixed">
     <parent link="base_link"/>
     <child link="imu_link"/>
-    <origin xyz="0.0 0.0 0.0705" rpy="0 0 0"/>
+    <origin xyz="0.0 0.0 0.0805" rpy="0 0 0"/>
   </joint>
 
 
@@ -187,8 +187,8 @@
 
   <joint name="scan_joint" type="fixed">
     <parent link="base_link"/>
-    <child link="base_scan"/>
-    <origin xyz="-0.054025 0.0 0.14405" rpy="0 0 0"/>
+    <child link="camera_link"/>
+    <origin xyz="-0.115 0.01 0.179" rpy="0 0 0"/>
   </joint>
 
   <link name="camera_link">
@@ -202,34 +202,58 @@
     <visual>
       <origin xyz="0 0 0 " rpy="0 0 1.570796" />
       <geometry>
-        <mesh filename="package://dami2_description/meshes/sensors/kinect.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://dami2_description/meshes/sensors/kinect.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="dark"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0.0225" rpy="0 0 0" />
       <geometry>
         <box size="0.07271 0.27794 0.0720"/>
       </geometry>
     </collision>
   </link>
 
-  <joint name="camera_depth_joint" type="fixed">
-    <origin xyz="0 0.01235 0.0" rpy="0 0 0" />
-    <parent link="camera_link" />
+<joint name="camera_depth_joint" type="fixed">
+    <origin xyz="-0.050 0.0 0.0805" rpy="0 0 0" />
+    <parent link="base_link" />
     <child link="camera_depth_frame" />
   </joint>
 
-  <link name="camera_depth_frame"/>
+  <link name="camera_depth_frame">
+  <inertial>
+      <mass value="0.17" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+               iyy="0.001" iyz="0.0"
+               izz="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0 " rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://dami2_description/meshes/sensors/lidar.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dark"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.030" rpy="0 0 0" />
+      <geometry>
+        <box size="0.070 0.100 0.060"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  
 
 
-  <joint name="camera_depth_optical_joint" type="fixed">
+<joint name="camera_depth_optical_joint" type="fixed">
     <origin xyz="0 0 0" rpy="-1.5707963268 0 -1.5707963268" />
     <parent link="camera_depth_frame" />
     <child link="camera_depth_optical_frame" />
   </joint>
 
   <link name="camera_depth_optical_frame"/>
+
 
   <joint name="camera_rgb_joint" type="fixed">
     <origin xyz="0 -0.01235 0.0" rpy="0 0 0" />
@@ -238,6 +262,7 @@
   </joint>
 
   <link name="camera_rgb_frame"/>
+
 
   <joint name="camera_rgb_optical_joint" type="fixed">
     <origin xyz="0 0 0" rpy="-1.5707963268 0 -1.5707963268" />
