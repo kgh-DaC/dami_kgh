@@ -246,7 +246,7 @@
   
   
 
-
+<!--
 <joint name="camera_depth_optical_joint" type="fixed">
     <origin xyz="0 0 0" rpy="-1.5707963268 0 -1.5707963268" />
     <parent link="rplidar_link" />
@@ -272,6 +272,6 @@
   </joint>
 
   <link name="camera_rgb_optical_frame"/>
-
+-->
 
 </robot>
