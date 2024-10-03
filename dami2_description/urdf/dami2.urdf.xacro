@@ -187,8 +187,13 @@
 
   <joint name="scan_joint" type="fixed">
     <parent link="base_link"/>
+<<<<<<< HEAD
     <child link="camera_link"/>
     <origin xyz="-0.115 0.01 0.179" rpy="0 0 0"/>
+=======
+    <child link="camer_scan"/>
+    <origin xyz="-0.054025 0.0 0.14405" rpy="0 0 0"/>
+>>>>>>> 8a5ce0be434e64339d8b732d660b9734f95c948f
   </joint>
 
   <link name="camera_link">
